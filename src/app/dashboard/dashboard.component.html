@@ -1,0 +1,21 @@
+<div class="dashboard">
+    <h1>Progress Bar Demo</h1>
+    <progressbar *ngFor="let data of barData" [max]="data.max" [value]="data.value" [type]="data.type">
+        <span>{{data.percent}}%</span>
+    </progressbar>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <select class="form-control" (change)="onChange($event.target.value)">
+                <option *ngFor="let data of barData" [value]="data.id">Progress {{data.id}}</option>
+            </select>
+        </div>
+
+        <div class="col-sm-8">
+            <button class="btn btn-default" (click)="redraw(-25)">-25</button>
+            <button class="btn btn-default" (click)="redraw(-10)">-10</button>
+            <button class="btn btn-default" (click)="redraw(10)">+10</button>
+            <button class="btn btn-default" (click)="redraw(25)">+25</button>
+        </div>
+    </div>
+</div>
